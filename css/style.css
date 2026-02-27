@@ -1,0 +1,64 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Bungee',cursive; scroll-behavior:smooth; }
+body { background:#0a0f1e; color:#00faff; display:flex; flex-direction:column; align-items:center; overflow-x:hidden; }
+
+/* Animasyonlar */
+.fade-slide-up { opacity:0; transform:translateY(50px); animation:slideUp 1s forwards; }
+.fade-slide-down { opacity:0; transform:translateY(-50px); animation:slideDown 1s forwards; }
+.fade-up { opacity:0; transform:translateY(30px); animation:fadeUp 1s forwards; }
+
+.delay-0 { animation-delay:0.2s; }
+.delay-1 { animation-delay:0.4s; }
+.delay-2 { animation-delay:0.6s; }
+.delay-3 { animation-delay:0.8s; }
+.delay-4 { animation-delay:1s; }
+.delay-5 { animation-delay:1.2s; }
+
+@keyframes slideUp { to {opacity:1; transform:translateY(0);} }
+@keyframes slideDown { to {opacity:1; transform:translateY(0);} }
+@keyframes fadeUp { to {opacity:1; transform:translateY(0);} }
+
+/* Navbar */
+nav { display:flex; justify-content:center; align-items:center; gap:15px; width:100%; text-align:center; padding:25px; background:#050a1a; box-shadow:0 0 25px #00faff; border-bottom:2px solid #00aaff; }
+nav h1 { color:#00faff; font-size:30px; text-shadow:0 0 15px #00faff,0 0 25px #00aaff; animation:glow 2s infinite alternate; }
+nav .logo-nav { height:50px; width:auto; filter:drop-shadow(0 0 10px #00faff) drop-shadow(0 0 20px #00aaff); animation:logoGlow 2s infinite alternate; }
+
+/* Hero */
+.hero { text-align:center; padding:100px 20px; }
+.hero h2 { font-size:40px; color:#00faff; text-shadow:0 0 15px #00faff,0 0 35px #00aaff; margin-bottom:20px; animation:glow 2s infinite alternate; }
+.hero p { color:#99f0ff; font-size:16px; text-shadow:0 0 5px #00aaff; margin-bottom:25px; animation:fadeText 2s infinite alternate; }
+
+/* Hero Logo Büyütülmüş */
+.logo-hero img { width:220px; height:auto; margin-bottom:25px; animation:logoPulse 2s infinite alternate; filter:drop-shadow(0 0 15px #00faff) drop-shadow(0 0 30px #00aaff); }
+@keyframes logoPulse { 0%{ transform:scale(1); } 50%{ transform:scale(1.1); } 100%{ transform:scale(1); } }
+
+/* Buton */
+.btn-container { margin-top:70px; text-align:center; }
+.hero .btn { display:inline-block; padding:20px 40px; line-height:1.2; background:#00faff; color:#000; font-weight:bold; border-radius:6px; text-decoration:none; text-shadow:0 0 5px #000; transition:0.3s, transform 0.3s; box-shadow:0 0 20px #00faff; position:relative; overflow:hidden; z-index:1; }
+.hero .btn:hover { background:#00aaff; color:#fff; transform:scale(1.08); text-shadow:0 0 15px #00faff; box-shadow:0 0 35px #00aaff; }
+.hero .btn::after { content:""; position:absolute; width:100%; height:100%; top:0; left:0; background:rgba(0,255,255,0.2); border-radius:6px; opacity:0; transition:0.4s; z-index:0; }
+.hero .btn:hover::after { opacity:1; transform:scale(1.2); }
+
+/* Blog */
+.blog { display:flex; flex-direction:column; align-items:center; gap:35px; padding:60px 20px; width:100%; max-width:1100px; }
+.blog-post { background:#050a1a; padding:35px 25px; border:2px solid #00faff; border-radius:12px; box-shadow:0 0 15px #00faff; width:100%; text-align:center; transition:0.4s, transform 0.4s, box-shadow 0.4s; position:relative; overflow:hidden; }
+.blog-post:hover { transform:translateY(-10px); border-color:#00aaff; box-shadow:0 0 40px #00aaff; }
+.blog-post .icon { font-size:28px; margin-bottom:10px; animation:iconGlow 2s infinite alternate; }
+.blog-post h3 { color:#00faff; font-size:24px; margin-bottom:12px; text-shadow:0 0 12px #00aaff; }
+.blog-post p { color:#99f0ff; font-size:15px; line-height:1.6; }
+.blog-post::after { content:""; position:absolute; width:100%; height:100%; top:0; left:0; background:rgba(0,255,255,0.1); border-radius:12px; opacity:0; transition:0.5s; }
+.blog-post:hover::after { opacity:1; transform:scale(1.05); }
+
+/* Footer */
+footer { text-align:center; padding:25px; background:#050a1a; border-top:2px solid #00faff; font-size:15px; color:#00faff; text-shadow:0 0 12px #00aaff; width:100%; transition:all 0.3s; }
+footer a { color:#00faff; margin:0 15px; transition:0.3s, text-shadow 0.3s; text-shadow:0 0 5px #00aaff; }
+footer a:hover { color:#00aaff; text-shadow:0 0 20px #00faff; }
+
+/* Animasyonlar */
+@keyframes glow { 0%{text-shadow:0 0 10px #00faff,0 0 20px #00aaff;} 50%{text-shadow:0 0 20px #00faff,0 0 40px #00aaff;} 100%{text-shadow:0 0 10px #00faff,0 0 20px #00aaff;} }
+@keyframes fadeText { 0%{opacity:0.8;} 50%{opacity:1;} 100%{opacity:0.8;} }
+@keyframes iconGlow { 0%{text-shadow:0 0 5px #00faff;} 50%{text-shadow:0 0 15px #00aaff;} 100%{text-shadow:0 0 5px #00faff;} }
+
+/* Responsive */
+@media(max-width:1024px){ .logo-hero img{width:180px;} .hero h2{font-size:36px;} .hero p{font-size:15px;} .blog-post{padding:30px 20px;} .hero .btn{padding:18px 36px;} }
+@media(max-width:768px){ .logo-hero img{width:150px;} .hero h2{font-size:32px;} .hero p{font-size:14px;} .blog-post{padding:25px 15px;} .hero .btn{padding:16px 32px;} }
+@media(max-width:480px){ .logo-hero img{width:120px;} .hero h2{font-size:28px;} .hero p{font-size:13px;} .blog-post h3{font-size:20px;} .blog-post p{font-size:13px;} }
